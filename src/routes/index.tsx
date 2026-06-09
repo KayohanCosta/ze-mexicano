@@ -1,29 +1,47 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Menu } from "@/components/Menu";
+import { Events } from "@/components/Events";
+import { Gallery } from "@/components/Gallery";
+import { Location } from "@/components/Location";
+import { Footer } from "@/components/Footer";
+import { WhatsAppFab } from "@/components/WhatsAppFab";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Zé Mexicano · Bar & Restaurante Mexicano em Fortaleza" },
+      {
+        name: "description",
+        content:
+          "Tacos, burritos, fajitas e drinks no melhor bar mexicano de Fortaleza. Cardápio completo, DJs, música ao vivo e eventos toda semana no Cocó.",
+      },
+      { property: "og:title", content: "Zé Mexicano · Bar & Restaurante" },
+      {
+        property: "og:description",
+        content:
+          "O melhor da culinária mexicana com toque brasileiro. Rua Manuel Queirós, 511 — Cocó, Fortaleza.",
+      },
+      { property: "og:type", content: "restaurant" },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative overflow-hidden">
+      <Navbar />
+      <Hero />
+      <About />
+      <Menu />
+      <Events />
+      <Gallery />
+      <Location />
+      <Footer />
+      <WhatsAppFab />
+    </main>
   );
 }
