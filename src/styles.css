@@ -210,3 +210,40 @@
     animation: wiggle 6s ease-in-out infinite;
   }
 }
+
+/* Responsividade para telas com altura pequena (ex: notebooks 1536x695) */
+@media (max-height: 750px) {
+  .hero-section {
+    padding-top: 5rem !important; /* pt-20 para liberar o navbar */
+  }
+  .hero-container {
+    padding-top: 1rem !important;
+    padding-bottom: 2rem !important;
+    min-height: calc(100vh - 80px) !important;
+  }
+  .hero-spacer {
+    display: none !important;
+  }
+  .hero-content {
+    margin-top: 0.5rem !important;
+  }
+  .hero-content > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.25rem !important; /* reduz espaçamento do space-y-8 */
+  }
+  .hero-title span:nth-child(1) {
+    font-size: 5rem !important; /* reduz de 6.5rem */
+  }
+  .hero-title span:nth-child(2) {
+    font-size: 4rem !important; /* reduz de 5.5rem */
+  }
+  .hero-title span:nth-child(3) {
+    font-size: 6rem !important; /* reduz de 8rem */
+  }
+  .hero-cards-grid {
+    margin-top: 1.5rem !important; /* reduz de mt-12 */
+    padding-top: 1.5rem !important;
+  }
+  .hero-cards-grid .hero-info-card {
+    padding: 1.25rem 1.5rem !important; /* reduz o padding interno dos cards */
+  }
+}

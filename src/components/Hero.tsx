@@ -10,7 +10,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
   return (
     <section
       id="top"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28 lg:pt-32"
+      className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28 lg:pt-32"
     >
       {/* Background Video */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none">
@@ -36,18 +36,18 @@ export function Hero({ onOpenBooking }: HeroProps) {
       <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_20%,rgba(13,13,13,0.75)_100%)]" />
 
       {/* Hero Content Container */}
-      <div className="container relative z-20 mx-auto px-5 md:px-8 pt-28 pb-16 md:pt-36 md:pb-16 lg:pt-40 lg:pb-16 flex flex-col justify-between min-h-[calc(100vh-80px)]">
+      <div className="hero-container container relative z-20 mx-auto px-5 md:px-8 pt-28 pb-16 md:pt-36 md:pb-16 lg:pt-40 lg:pb-16 flex flex-col justify-between min-h-[calc(100vh-80px)]">
         {/* Empty spacer to push content down slightly on large screens */}
-        <div className="hidden md:block h-10" />
+        <div className="hero-spacer hidden md:block h-10" />
 
         {/* Middle content: Headings and CTAs */}
-        <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
+        <div className="hero-content max-w-4xl space-y-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent backdrop-blur-sm">
             <Flame className="h-4 w-4 animate-pulse" /> Fortaleza · Desde 2017
           </div>
 
           <div className="space-y-4">
-            <h1 className="font-display leading-[0.85] text-cream">
+            <h1 className="hero-title font-display leading-[0.85] text-cream">
               <span className="block text-[10vw] md:text-[6.5rem] tracking-tight">A AUTÊNTICA</span>
               <span className="block text-[8vw] md:text-[5.5rem] font-serif italic text-accent font-normal mt-1 leading-none">
                 experiência mexicana
@@ -84,7 +84,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
         </div>
 
         {/* Bottom content: Premium Invite Info Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto w-full pt-8 border-t border-border/30 mt-12 animate-in fade-in duration-1000">
+        <div className="hero-cards-grid grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto w-full pt-8 border-t border-border/30 mt-12 animate-in fade-in duration-1000">
           <InfoCard
             icon={MapPin}
             title="VISITE O ZÉ"
@@ -124,7 +124,7 @@ interface InfoCardProps {
 function InfoCard({ icon: Icon, title, line1, line2, href, isHighlight = false }: InfoCardProps) {
   const cardContent = (
     <div
-      className={`flex flex-col items-center justify-center text-center h-full p-7 sm:p-8 rounded-xl backdrop-blur-xl border transition-all duration-300 group select-none ${
+      className={`hero-info-card flex flex-col items-center justify-center text-center h-full p-7 sm:p-8 rounded-xl backdrop-blur-xl border transition-all duration-300 group select-none ${
         isHighlight
           ? "border-accent/45 bg-accent/[0.03] shadow-[0_0_15px_rgba(245,217,85,0.04)] hover:border-accent hover:bg-accent/[0.07] hover:shadow-[0_0_30px_rgba(245,217,85,0.18)] hover:-translate-y-1 hover:scale-[1.02]"
           : "border-white/5 bg-card/8 shadow-[0_8px_32px_rgba(0,0,0,0.25)] hover:border-accent/30 hover:bg-card/12 hover:-translate-y-1"
