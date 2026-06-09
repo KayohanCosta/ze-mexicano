@@ -32,8 +32,10 @@
   --color-lime: var(--lime);
   --color-corn: var(--corn);
   --color-cream: var(--cream);
+  --color-ink: var(--ink);
 
   --font-display: "Bebas Neue", system-ui, sans-serif;
+  --font-serif: "Fraunces", "Times New Roman", serif;
   --font-script: "Caveat", cursive;
   --font-body: "Inter", system-ui, sans-serif;
 }
@@ -41,38 +43,41 @@
 :root {
   --radius: 0.5rem;
 
-  /* Festa Mexicana — noite de bar */
-  --background: oklch(0.16 0.03 260);       /* deep midnight */
-  --foreground: oklch(0.97 0.02 90);        /* cream white */
-  --card: oklch(0.21 0.035 260);
-  --card-foreground: oklch(0.97 0.02 90);
-  --popover: oklch(0.21 0.035 260);
-  --popover-foreground: oklch(0.97 0.02 90);
+  /* Festa Mexicana premium — noite quente */
+  --background: oklch(0.13 0.02 30);              /* warm near-black */
+  --foreground: oklch(0.96 0.02 80);              /* warm cream */
+  --card: oklch(0.18 0.025 30);
+  --card-foreground: oklch(0.96 0.02 80);
+  --popover: oklch(0.18 0.025 30);
+  --popover-foreground: oklch(0.96 0.02 80);
 
-  --primary: oklch(0.62 0.23 27);           /* chili red */
-  --primary-foreground: oklch(0.98 0.02 90);
-  --secondary: oklch(0.26 0.04 260);
-  --secondary-foreground: oklch(0.97 0.02 90);
-  --muted: oklch(0.24 0.03 260);
-  --muted-foreground: oklch(0.72 0.03 90);
-  --accent: oklch(0.85 0.17 90);            /* corn yellow */
-  --accent-foreground: oklch(0.16 0.03 260);
+  --primary: oklch(0.6 0.23 27);                  /* chili red */
+  --primary-foreground: oklch(0.98 0.02 80);
+  --secondary: oklch(0.22 0.025 30);
+  --secondary-foreground: oklch(0.96 0.02 80);
+  --muted: oklch(0.22 0.025 30);
+  --muted-foreground: oklch(0.72 0.025 80);
+  --accent: oklch(0.84 0.16 80);                  /* marigold gold */
+  --accent-foreground: oklch(0.13 0.02 30);
 
-  --destructive: oklch(0.62 0.23 27);
-  --destructive-foreground: oklch(0.98 0.02 90);
-  --border: oklch(0.3 0.03 260);
-  --input: oklch(0.3 0.03 260);
-  --ring: oklch(0.62 0.23 27);
+  --destructive: oklch(0.6 0.23 27);
+  --destructive-foreground: oklch(0.98 0.02 80);
+  --border: oklch(0.28 0.025 30);
+  --input: oklch(0.28 0.025 30);
+  --ring: oklch(0.84 0.16 80);
 
-  --chili: oklch(0.62 0.23 27);             /* #dc2626-ish */
-  --lime: oklch(0.68 0.19 142);             /* #16a34a-ish */
-  --corn: oklch(0.85 0.17 90);              /* #fbbf24-ish */
-  --cream: oklch(0.97 0.03 85);
+  --chili: oklch(0.6 0.23 27);
+  --lime: oklch(0.7 0.2 145);
+  --corn: oklch(0.84 0.16 80);
+  --cream: oklch(0.96 0.03 80);
+  --ink: oklch(0.13 0.02 30);
 
-  --gradient-fiesta: linear-gradient(135deg, var(--chili) 0%, var(--corn) 50%, var(--lime) 100%);
-  --gradient-hero: linear-gradient(180deg, oklch(0.16 0.03 260 / 0) 0%, oklch(0.16 0.03 260 / 0.6) 50%, oklch(0.16 0.03 260) 100%);
-  --shadow-fiesta: 0 20px 60px -15px oklch(0.62 0.23 27 / 0.45);
-  --shadow-glow: 0 0 40px oklch(0.85 0.17 90 / 0.35);
+  --gradient-fiesta: linear-gradient(115deg, var(--chili) 0%, var(--corn) 55%, var(--lime) 100%);
+  --gradient-glow:   radial-gradient(circle at 30% 0%, oklch(0.6 0.23 27 / 0.35), transparent 60%),
+                     radial-gradient(circle at 80% 80%, oklch(0.7 0.2 145 / 0.22), transparent 55%);
+  --shadow-fiesta: 0 30px 80px -25px oklch(0.6 0.23 27 / 0.55);
+  --shadow-glow:   0 0 60px oklch(0.84 0.16 80 / 0.35);
+  --shadow-card:   0 20px 60px -25px oklch(0 0 0 / 0.6);
 }
 
 @layer base {
@@ -86,19 +91,17 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     background-image:
-      radial-gradient(ellipse at 20% 0%, oklch(0.62 0.23 27 / 0.08), transparent 50%),
-      radial-gradient(ellipse at 80% 100%, oklch(0.68 0.19 142 / 0.06), transparent 50%);
+      radial-gradient(ellipse at 15% 0%, oklch(0.6 0.23 27 / 0.10), transparent 55%),
+      radial-gradient(ellipse at 85% 100%, oklch(0.7 0.2 145 / 0.07), transparent 55%);
     background-attachment: fixed;
   }
 
-  ::selection {
-    background-color: var(--corn);
-    color: var(--background);
-  }
+  ::selection { background-color: var(--corn); color: var(--ink); }
 }
 
 @layer components {
-  .font-display { font-family: var(--font-display); letter-spacing: 0.02em; }
+  .font-display { font-family: var(--font-display); letter-spacing: 0.005em; }
+  .font-serif   { font-family: var(--font-serif); font-optical-sizing: auto; font-variation-settings: "SOFT" 50, "WONK" 0; }
   .font-script  { font-family: var(--font-script); }
 
   .text-fiesta {
@@ -108,26 +111,54 @@
     color: transparent;
   }
 
+  .text-outline {
+    -webkit-text-stroke: 1.5px var(--cream);
+    color: transparent;
+  }
+
   .bg-papel {
-    background-image:
-      repeating-linear-gradient(45deg,
-        oklch(0.62 0.23 27 / 0.04) 0 12px,
-        transparent 12px 24px,
-        oklch(0.68 0.19 142 / 0.04) 24px 36px,
-        transparent 36px 48px,
-        oklch(0.85 0.17 90 / 0.04) 48px 60px,
-        transparent 60px 72px);
+    background-image: repeating-linear-gradient(45deg,
+      oklch(0.6 0.23 27 / 0.04) 0 12px, transparent 12px 24px,
+      oklch(0.7 0.2 145 / 0.04) 24px 36px, transparent 36px 48px,
+      oklch(0.84 0.16 80 / 0.04) 48px 60px, transparent 60px 72px);
   }
 
   .divider-papel {
     height: 28px;
     background-image: linear-gradient(90deg,
-      var(--chili) 0 25%,
-      var(--corn) 25% 50%,
-      var(--cream) 50% 75%,
-      var(--lime) 75% 100%);
+      var(--chili) 0 25%, var(--corn) 25% 50%,
+      var(--cream) 50% 75%, var(--lime) 75% 100%);
     mask-image: radial-gradient(circle 12px at 12px 28px, transparent 98%, #000 100%);
-    mask-size: 24px 28px;
-    mask-repeat: repeat-x;
+    mask-size: 24px 28px; mask-repeat: repeat-x;
   }
+
+  .sticker {
+    background: var(--corn);
+    color: var(--ink);
+    border-radius: 9999px;
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow-glow);
+  }
+
+  .grain::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.7'/></svg>");
+  }
+
+  @keyframes marquee {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
+  }
+  .animate-marquee { animation: marquee 38s linear infinite; }
+  .animate-marquee-fast { animation: marquee 22s linear infinite; }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-4deg); }
+    50%      { transform: rotate(4deg); }
+  }
+  .animate-wiggle { animation: wiggle 6s ease-in-out infinite; }
 }

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#sobre", label: "Sobre" },
   { href: "#cardapio", label: "Cardápio" },
-  { href: "#eventos", label: "Eventos" },
-  { href: "#galeria", label: "Galeria" },
+  { href: "#manifesto", label: "Nuestra Esencia" },
+  { href: "#eventos", label: "La Fiesta" },
+  { href: "#galeria", label: "Momentos" },
   { href: "#visite", label: "Visite" },
 ];
 
@@ -23,22 +23,22 @@ export function Navbar() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-background/85 backdrop-blur-md border-b border-border/60"
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/60"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-5 md:px-8">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="font-display text-2xl tracking-wider text-fiesta">ZÉ MEXICANO</span>
-          <span className="hidden font-script text-lg text-accent md:inline">¡ándale!</span>
+      <div className="container mx-auto flex h-18 items-center justify-between px-5 py-3 md:px-8">
+        <a href="#top" className="flex items-baseline gap-2">
+          <span className="font-display text-2xl tracking-wider text-cream">ZÉ</span>
+          <span className="font-serif text-xl italic text-accent">mexicano</span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 md:flex">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium uppercase tracking-wider text-muted-foreground transition-colors hover:text-accent"
+              className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-accent"
             >
               {l.label}
             </a>
@@ -47,7 +47,7 @@ export function Navbar() {
             href="https://api.whatsapp.com/send/?phone=5585989261352"
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-transform hover:scale-105"
+            className="rounded-full bg-cream px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.18em] text-ink transition-transform hover:scale-105"
           >
             Reservar
           </a>
@@ -83,7 +83,7 @@ export function Navbar() {
               href="https://api.whatsapp.com/send/?phone=5585989261352"
               target="_blank"
               rel="noreferrer"
-              className="mt-2 rounded-full bg-primary px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
+              className="mt-2 rounded-full bg-cream px-5 py-3 text-center text-sm font-bold uppercase tracking-wider text-ink"
             >
               Reservar pelo WhatsApp
             </a>
