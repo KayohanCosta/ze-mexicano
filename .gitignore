@@ -33,3 +33,6 @@ dist-ssr
 
 # Raw user photos
 Zé Mexicano fotos/
+
+# Vercel build output
+.vercel/
