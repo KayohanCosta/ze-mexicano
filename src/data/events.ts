@@ -3,10 +3,10 @@ import dish2 from "@/assets/dish-2.jpg";
 import dish6 from "@/assets/dish-6.jpg";
 
 export type EventItem = {
-  date: string;     // "SEX 14 JUN"
-  day: string;      // "14"
-  month: string;    // "JUN"
-  weekday: string;  // "Sexta"
+  date: string; // "SEX 14 JUN"
+  day: string; // "14"
+  month: string; // "JUN"
+  weekday: string; // "Sexta"
   title: string;
   desc: string;
   tag: string;

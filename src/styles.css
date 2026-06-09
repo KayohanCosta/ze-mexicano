@@ -44,20 +44,20 @@
   --radius: 0.5rem;
 
   /* Festa Mexicana premium — noite quente */
-  --background: oklch(0.13 0.02 30);              /* warm near-black */
-  --foreground: oklch(0.96 0.02 80);              /* warm cream */
+  --background: oklch(0.13 0.02 30); /* warm near-black */
+  --foreground: oklch(0.96 0.02 80); /* warm cream */
   --card: oklch(0.18 0.025 30);
   --card-foreground: oklch(0.96 0.02 80);
   --popover: oklch(0.18 0.025 30);
   --popover-foreground: oklch(0.96 0.02 80);
 
-  --primary: oklch(0.6 0.23 27);                  /* chili red */
+  --primary: oklch(0.6 0.23 27); /* chili red */
   --primary-foreground: oklch(0.98 0.02 80);
   --secondary: oklch(0.22 0.025 30);
   --secondary-foreground: oklch(0.96 0.02 80);
   --muted: oklch(0.22 0.025 30);
   --muted-foreground: oklch(0.72 0.025 80);
-  --accent: oklch(0.84 0.16 80);                  /* marigold gold */
+  --accent: oklch(0.84 0.16 80); /* marigold gold */
   --accent-foreground: oklch(0.13 0.02 30);
 
   --destructive: oklch(0.6 0.23 27);
@@ -73,36 +73,58 @@
   --ink: oklch(0.13 0.02 30);
 
   --gradient-fiesta: linear-gradient(115deg, var(--chili) 0%, var(--corn) 55%, var(--lime) 100%);
-  --gradient-glow:   radial-gradient(circle at 30% 0%, oklch(0.6 0.23 27 / 0.35), transparent 60%),
-                     radial-gradient(circle at 80% 80%, oklch(0.7 0.2 145 / 0.22), transparent 55%);
+  --gradient-glow:
+    radial-gradient(circle at 30% 0%, oklch(0.6 0.23 27 / 0.35), transparent 60%),
+    radial-gradient(circle at 80% 80%, oklch(0.7 0.2 145 / 0.22), transparent 55%);
   --shadow-fiesta: 0 30px 80px -25px oklch(0.6 0.23 27 / 0.55);
-  --shadow-glow:   0 0 60px oklch(0.84 0.16 80 / 0.35);
-  --shadow-card:   0 20px 60px -25px oklch(0 0 0 / 0.6);
+  --shadow-glow: 0 0 60px oklch(0.84 0.16 80 / 0.35);
+  --shadow-card: 0 20px 60px -25px oklch(0 0 0 / 0.6);
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
+  * {
+    border-color: var(--color-border);
+  }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
     background-image:
-      radial-gradient(ellipse at 15% 0%, oklch(0.6 0.23 27 / 0.10), transparent 55%),
+      radial-gradient(ellipse at 15% 0%, oklch(0.6 0.23 27 / 0.1), transparent 55%),
       radial-gradient(ellipse at 85% 100%, oklch(0.7 0.2 145 / 0.07), transparent 55%);
     background-attachment: fixed;
   }
 
-  ::selection { background-color: var(--corn); color: var(--ink); }
+  ::selection {
+    background-color: var(--corn);
+    color: var(--ink);
+  }
 }
 
 @layer components {
-  .font-display { font-family: var(--font-display); letter-spacing: 0.005em; }
-  .font-serif   { font-family: var(--font-serif); font-optical-sizing: auto; font-variation-settings: "SOFT" 50, "WONK" 0; }
-  .font-script  { font-family: var(--font-script); }
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.005em;
+  }
+  .font-serif {
+    font-family: var(--font-serif);
+    font-optical-sizing: auto;
+    font-variation-settings:
+      "SOFT" 50,
+      "WONK" 0;
+  }
+  .font-script {
+    font-family: var(--font-script);
+  }
 
   .text-fiesta {
     background: var(--gradient-fiesta);
@@ -117,19 +139,29 @@
   }
 
   .bg-papel {
-    background-image: repeating-linear-gradient(45deg,
-      oklch(0.6 0.23 27 / 0.04) 0 12px, transparent 12px 24px,
-      oklch(0.7 0.2 145 / 0.04) 24px 36px, transparent 36px 48px,
-      oklch(0.84 0.16 80 / 0.04) 48px 60px, transparent 60px 72px);
+    background-image: repeating-linear-gradient(
+      45deg,
+      oklch(0.6 0.23 27 / 0.04) 0 12px,
+      transparent 12px 24px,
+      oklch(0.7 0.2 145 / 0.04) 24px 36px,
+      transparent 36px 48px,
+      oklch(0.84 0.16 80 / 0.04) 48px 60px,
+      transparent 60px 72px
+    );
   }
 
   .divider-papel {
     height: 28px;
-    background-image: linear-gradient(90deg,
-      var(--chili) 0 25%, var(--corn) 25% 50%,
-      var(--cream) 50% 75%, var(--lime) 75% 100%);
+    background-image: linear-gradient(
+      90deg,
+      var(--chili) 0 25%,
+      var(--corn) 25% 50%,
+      var(--cream) 50% 75%,
+      var(--lime) 75% 100%
+    );
     mask-image: radial-gradient(circle 12px at 12px 28px, transparent 98%, #000 100%);
-    mask-size: 24px 28px; mask-repeat: repeat-x;
+    mask-size: 24px 28px;
+    mask-repeat: repeat-x;
   }
 
   .sticker {
@@ -142,7 +174,8 @@
 
   .grain::after {
     content: "";
-    position: absolute; inset: 0;
+    position: absolute;
+    inset: 0;
     pointer-events: none;
     opacity: 0.08;
     mix-blend-mode: overlay;
@@ -150,15 +183,30 @@
   }
 
   @keyframes marquee {
-    from { transform: translate3d(0, 0, 0); }
-    to   { transform: translate3d(-50%, 0, 0); }
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
   }
-  .animate-marquee { animation: marquee 38s linear infinite; }
-  .animate-marquee-fast { animation: marquee 22s linear infinite; }
+  .animate-marquee {
+    animation: marquee 38s linear infinite;
+  }
+  .animate-marquee-fast {
+    animation: marquee 22s linear infinite;
+  }
 
   @keyframes wiggle {
-    0%, 100% { transform: rotate(-4deg); }
-    50%      { transform: rotate(4deg); }
+    0%,
+    100% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(4deg);
+    }
   }
-  .animate-wiggle { animation: wiggle 6s ease-in-out infinite; }
+  .animate-wiggle {
+    animation: wiggle 6s ease-in-out infinite;
+  }
 }

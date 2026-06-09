@@ -19,13 +19,17 @@ export function Location() {
 
             <div className="mt-8 space-y-6">
               <Block label="Endereço">
-                Rua Manuel Queirós, 511<br />
+                Rua Manuel Queirós, 511
+                <br />
                 Cocó · Fortaleza — CE · 60192-220
               </Block>
 
               <Block label="Horário">
                 {hours.map((h) => (
-                  <div key={h.day} className="flex justify-between border-b border-border/60 py-1.5">
+                  <div
+                    key={h.day}
+                    className="flex justify-between border-b border-border/60 py-1.5"
+                  >
                     <span>{h.day}</span>
                     <span className="font-medium text-accent">{h.time}</span>
                   </div>
@@ -33,9 +37,16 @@ export function Location() {
               </Block>
 
               <Block label="Contato">
-                <a href="tel:+5585989261352" className="block hover:text-accent">(85) 98926-1352 · Reservas</a>
-                <a href="tel:+5585984651070" className="block hover:text-accent">(85) 98465-1070 · Informações</a>
-                <a href="mailto:zemexicanocurriculos@gmail.com" className="block text-muted-foreground hover:text-accent">
+                <a href="tel:+5585989261352" className="block hover:text-accent">
+                  (85) 98926-1352 · Reservas
+                </a>
+                <a href="tel:+5585984651070" className="block hover:text-accent">
+                  (85) 98465-1070 · Informações
+                </a>
+                <a
+                  href="mailto:zemexicanocurriculos@gmail.com"
+                  className="block text-muted-foreground hover:text-accent"
+                >
                   zemexicanocurriculos@gmail.com · Trabalhe conosco
                 </a>
               </Block>

@@ -14,11 +14,9 @@ export function Manifesto() {
           </div>
 
           <p className="text-balance text-center font-serif text-3xl leading-[1.15] italic text-cream md:text-6xl">
-            <span className="text-fiesta">"O Zé respeita o México</span>{" "}
-            mas serve com sotaque cearense.{" "}
-            <span className="text-accent">Tortilha na mão,</span>{" "}
-            queijo coalho na cobertura,{" "}
-            tequila no copo e samba na trilha."
+            <span className="text-fiesta">"O Zé respeita o México</span> mas serve com sotaque
+            cearense. <span className="text-accent">Tortilha na mão,</span> queijo coalho na
+            cobertura, tequila no copo e samba na trilha."
           </p>
 
           <p className="mt-10 text-center font-script text-3xl text-accent">— a casa</p>
@@ -27,7 +25,14 @@ export function Manifesto() {
         {/* picture row */}
         <div className="relative mx-auto mt-20 grid max-w-6xl gap-4 md:grid-cols-[2fr_1fr]">
           <figure className="relative overflow-hidden rounded-2xl">
-            <img src={ambient} alt="Ambiente do Zé Mexicano" width={1600} height={900} loading="lazy" className="h-[260px] w-full object-cover md:h-[420px]" />
+            <img
+              src={ambient}
+              alt="Ambiente do Zé Mexicano"
+              width={1600}
+              height={900}
+              loading="lazy"
+              className="h-[260px] w-full object-cover md:h-[420px]"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
             <figcaption className="absolute bottom-5 left-6 font-script text-2xl text-cream md:text-3xl">
               toda noite é festa

@@ -1,94 +1,125 @@
-import hero from "@/assets/hero.jpg";
-import people1 from "@/assets/people-1.jpg";
-import people2 from "@/assets/people-2.jpg";
+import React from "react";
+import heroFallback from "@/assets/instagram/pratos/prato-4.jpg";
+import { Flame, Calendar, Clock, MapPin, Phone } from "lucide-react";
 
-export function Hero() {
+interface HeroProps {
+  onOpenBooking: () => void;
+}
+
+export function Hero({ onOpenBooking }: HeroProps) {
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden pt-28 md:pt-32">
-      {/* Glow background */}
-      <div className="pointer-events-none absolute inset-0" style={{ background: "var(--gradient-glow)" }} />
+    <section
+      id="top"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+    >
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover scale-[1.02] filter brightness-[0.8] contrast-[1.05]"
+          poster={heroFallback}
+        >
+          <source
+            src="https://assets.mixkit.co/videos/preview/mixkit-mexican-food-tacos-on-grill-42358-large.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
-      <div className="container relative mx-auto grid gap-10 px-5 pb-16 md:grid-cols-[1.15fr_1fr] md:px-8 md:pb-24">
-        {/* LEFT — typography */}
-        <div className="relative flex flex-col justify-center">
-          <div className="mb-6 flex items-center gap-3">
-            <span className="h-px w-12 bg-accent" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent">
-              Fortaleza · desde 2017
-            </span>
+      {/* Dark Overlay with radial gradient for contrast */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-background/60 to-black/60" />
+
+      {/* Hero Content Container */}
+      <div className="container relative z-20 mx-auto px-5 md:px-8 py-20 flex flex-col justify-between min-h-[calc(100vh-80px)]">
+        {/* Empty spacer to push content down slightly on large screens */}
+        <div className="hidden md:block h-10" />
+
+        {/* Middle content: Headings and CTAs */}
+        <div className="max-w-4xl space-y-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent backdrop-blur-sm">
+            <Flame className="h-4 w-4 animate-pulse" /> Fortaleza · Desde 2017
           </div>
 
-          <h1 className="font-display leading-[0.82]">
-            <span className="block text-[18vw] text-cream md:text-[9.5rem]">EL REY</span>
-            <span className="-mt-2 block font-serif text-[8vw] italic text-accent md:text-[4rem]">
-              de los
-            </span>
-            <span className="block text-[22vw] text-fiesta md:text-[12rem]">TACOS</span>
-          </h1>
+          <div className="space-y-4">
+            <h1 className="font-display leading-[0.85] text-cream">
+              <span className="block text-[10vw] md:text-[6.5rem] tracking-tight">A AUTÊNTICA</span>
+              <span className="block text-[8vw] md:text-[5.5rem] font-serif italic text-accent font-normal mt-1 leading-none">
+                experiência mexicana
+              </span>
+              <span className="block text-[13vw] md:text-[8rem] text-fiesta tracking-wide leading-none mt-2">
+                EM FORTALEZA.
+              </span>
+            </h1>
 
-          <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-            Cantina mexicana de bairro, com alma cearense. Tortilha feita à mão,
-            tequila boa, música alta e mesa que não acaba mais.
-          </p>
+            <p className="max-w-2xl text-base md:text-xl text-cream/90 leading-relaxed drop-shadow-md">
+              Sabores marcantes, drinks exclusivos e noites inesquecíveis no coração do Cocó. Tudo
+              feito em casa diariamente para você.
+            </p>
+          </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          {/* Action buttons */}
+          <div className="flex flex-wrap items-center gap-4 pt-2">
             <a
               href="#cardapio"
-              className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-4 text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground shadow-[var(--shadow-fiesta)] transition-transform hover:scale-105"
+              className="group inline-flex items-center gap-3 rounded-full bg-primary px-8 py-4.5 text-xs font-bold uppercase tracking-[0.18em] text-primary-foreground shadow-[var(--shadow-fiesta)] hover:scale-105 transition-all cursor-pointer"
             >
-              Ver o cardápio
+              Explorar Cardápio
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
-            <a
-              href="https://api.whatsapp.com/send/?phone=5585989261352"
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs font-bold uppercase tracking-[0.18em] text-cream underline decoration-accent decoration-2 underline-offset-8 hover:text-accent"
-            >
-              Reservar mesa
-            </a>
-          </div>
 
-          <div className="mt-14 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-6">
-            <Mini label="Aberto hoje" value="17h — 00h" />
-            <Mini label="Bairro" value="Cocó · CE" />
-            <Mini label="Reservas" value="(85) 98926-1352" />
+            <button
+              onClick={onOpenBooking}
+              className="group inline-flex items-center gap-3 rounded-full border border-cream/50 bg-background/30 backdrop-blur-sm px-8 py-4.5 text-xs font-bold uppercase tracking-[0.18em] text-cream hover:border-accent hover:text-accent hover:bg-background/60 transition-all cursor-pointer"
+            >
+              Reservar Mesa
+              <span className="transition-transform group-hover:scale-110">★</span>
+            </button>
           </div>
         </div>
 
-        {/* RIGHT — image collage */}
-        <div className="relative h-[520px] md:h-[640px]">
-          {/* main image */}
-          <div className="absolute right-0 top-0 h-[78%] w-[82%] overflow-hidden rounded-2xl shadow-[var(--shadow-card)]">
-            <img src={hero} alt="Tacos do Zé" width={1200} height={1200} className="h-full w-full object-cover" />
-          </div>
-
-          {/* secondary */}
-          <div className="absolute bottom-0 left-0 h-[44%] w-[55%] overflow-hidden rounded-2xl border-4 border-background shadow-[var(--shadow-card)]">
-            <img src={people1} alt="Cliente com margarita" width={800} height={800} loading="lazy" className="h-full w-full object-cover" />
-          </div>
-
-          {/* tertiary */}
-          <div className="absolute -right-2 bottom-6 hidden h-[34%] w-[38%] overflow-hidden rounded-2xl border-4 border-background shadow-[var(--shadow-card)] md:block">
-            <img src={people2} alt="Cheers de margaritas" width={800} height={800} loading="lazy" className="h-full w-full object-cover" />
-          </div>
-
-          {/* sticker badge */}
-          <div className="sticker animate-wiggle absolute -left-2 top-4 z-10 max-w-[160px] rotate-[-8deg] text-center md:-left-6 md:top-10">
-            <p className="font-script text-xl leading-tight text-ink">¡muy</p>
-            <p className="font-display text-3xl leading-tight text-ink">picante!</p>
-          </div>
+        {/* Bottom content: Indicators Quick-Stats grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-border/40 pt-8 mt-12 animate-in fade-in duration-1000">
+          <Indicator
+            icon={Clock}
+            label="Horário de Funcionamento"
+            value="Terça a Dom: 17h — 00h (Fim de semana até 01h)"
+          />
+          <Indicator
+            icon={MapPin}
+            label="Localização"
+            value="Rua Manuel Queirós, 511 — Cocó, Fortaleza"
+          />
+          <Indicator
+            icon={Phone}
+            label="Reservas e Contato"
+            value="(85) 98926-1352 / (85) 98465-1070"
+          />
         </div>
       </div>
     </section>
   );
 }
 
-function Mini({ label, value }: { label: string; value: string }) {
+interface IndicatorProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  label: string;
+  value: string;
+}
+
+function Indicator({ icon: Icon, label, value }: IndicatorProps) {
   return (
-    <div>
-      <p className="text-[10px] uppercase tracking-[0.18em] text-accent">{label}</p>
-      <p className="mt-1 text-sm font-medium text-foreground">{value}</p>
+    <div className="flex items-start gap-3 p-4 rounded-xl bg-card/25 backdrop-blur-xs border border-border/30 hover:border-accent/30 transition-colors">
+      <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 text-accent flex items-center justify-center shrink-0">
+        <Icon className="h-5 w-5" />
+      </div>
+      <div>
+        <p className="text-[10px] uppercase tracking-[0.18em] text-accent font-bold">{label}</p>
+        <p className="mt-1 text-sm font-medium text-cream/90 leading-tight">{value}</p>
+      </div>
     </div>
   );
 }
